@@ -1,0 +1,16 @@
+Package: GASpower
+Title: Genomic Association Study (GAS) Power Calculator in R
+Version: 1.0.0
+Authors@R: 
+    person("James", "Russ-Silsby", , "jr843@exeter.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-4470-2544"))
+Description: R implementation of the Genomic Association Study (GAS) Power
+    Calculator, Copyright 2017 Jennifer Li Johnson, University of Michigan
+    School of Public Health. Original paper available at doi:
+    https://doi.org/10.1101/164343 .
+License: GPL (>= 3)
+Imports: 
+    testthat
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
