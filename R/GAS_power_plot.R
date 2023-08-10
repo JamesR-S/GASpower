@@ -32,6 +32,10 @@ GAS_power_plot <- function(plot_variable,from,to,by,daf=NULL,grr=NULL,prevalence
     stop('Invalid genotype relative risk ranges : from and to values should be greater than 0')
   }
 
+  if ((plot_variable == "controls"  || plot_variable == "cases") && is.null(prevalence)){
+    stop('Prevalence must be specified if cases/controls is being plotted.')
+  }
+
   if (is.null(prevalence) && !(plot_variable == "prevalence" )){
     warning("No value supplied for prevalence, so cohort prevalence used (cases/(cases + controls))")
     prevalence <- cases/(cases+controls)
