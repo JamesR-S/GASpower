@@ -83,8 +83,6 @@ GAS_power_plot <- function(plot_variable,from,to,by,daf=NULL,grr=NULL,prevalence
 
   plot_data <- data.frame(plot_variable_ranges ,P_values)
 
-  print(plot_data)
-
   plot <- ggplot(plot_data,aes=aes(x=plot_variable_ranges, y=P_values)) + geom_point(aes(x=plot_variable_ranges, y=P_values)) + geom_line(aes(x=plot_variable_ranges, y=P_values)) + xlab(variable_names[plot_variable]) + ylab("Power") +theme_linedraw()
 
   return(plot)
