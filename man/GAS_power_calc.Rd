@@ -10,7 +10,7 @@ Calculates statistical power for genomic association studies. Based on Genomic A
 \arguments{
   \item{daf}{disease allele frequency: frequency of the disease risk allele in the general population}
   \item{grr}{genotype relative risk}
-  \item{prevalence}{general population disease prevelance: probability that a randomly sampled individual has the disease.}
+  \item{prevalence}{general population disease prevelance: probability that a randomly sampled individual has the disease. If prevalence is not provided then it will be calculated based on the case and control numbers.}
   \item{cases}{n cases in study}
   \item{controls}{n controls in study}
   \item{alpha}{desired significance level (alpha)}

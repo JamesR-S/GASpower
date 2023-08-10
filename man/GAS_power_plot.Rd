@@ -10,7 +10,7 @@ Plots power for a range of values. Based on Genomic Association Study (GAS) Powe
 \arguments{
   \item{plot_variable}{choice of variable for power to be plotted against. This variable does not need to be defined later in the function}
   \item{from}{start value for plot variable}
-  \item{to}{start value for plot variable}
+  \item{to}{end value for plot variable}
   \item{by}{step size for plot variable}
   \item{daf}{disease allele frequency: frequency of the disease risk allele in the general population}
   \item{grr}{genotype relative risk}
@@ -21,5 +21,6 @@ Plots power for a range of values. Based on Genomic Association Study (GAS) Powe
   \item{model}{disease model: can be any of "multiplicative","additive","dominant","recessive"}
 }
 \examples{
-GAS_power_plot("grr",from = 1, to = 10, by = 0.5,daf=0.0000005,cases=39000,controls=36000,alpha = 0.05,model="dominant")
+GAS_power_plot("grr",from = 1, to = 10, by = 0.5,daf=0.0000005,
+    cases=39000,controls=36000,alpha = 0.05,model="dominant")
 }

@@ -8,7 +8,7 @@
 #   Check Package:             'Cmd + Shift + E'
 #   Test Package:              'Cmd + Shift + T'
 
-GAS_power_calc <- function(daf,grr,prevalence,cases,controls,alpha,model){
+GAS_power_calc <- function(daf,grr,prevalence=NULL,cases,controls,alpha,model){
   if (!(model %in% c("multiplicative","additive","dominant","recessive"))){
     stop('Invalid disease model type : please select one of "multiplicative","additive","dominant","recessive"')
   }
@@ -17,8 +17,13 @@ GAS_power_calc <- function(daf,grr,prevalence,cases,controls,alpha,model){
     stop('Invalid disease allelle frequency : value should be between 0 and 1')
   }
 
-  if (!(prevalence > 0 && prevalence < 1)){
+  if (!(is.null(prevalence)) && !(prevalence > 0 && prevalence < 1)){
     stop('Invalid disease prevalence : value should be between 0 and 1')
+  }
+
+  if (is.null(prevalence)){
+    prevalence <- cases/(cases+controls)
+    warning(paste0("No value supplied for prevalence, so cohort prevalence (",prevalence,") used (cases/(cases + controls))"))
   }
 
   if (!(alpha > 0 && alpha< 1)){
@@ -67,6 +72,7 @@ GAS_power_calc <- function(daf,grr,prevalence,cases,controls,alpha,model){
   controlsdaf <- ((1-AAprob) * AAfreq + (1-ABprob) * ABfreq * 0.5)/ (1 - prevalence)
 
   Vcases <- casesdaf * (1 - casesdaf)
+
   Vcontrols <- controlsdaf * (1 - controlsdaf)
 
   ncp <- (casesdaf - controlsdaf)/sqrt(((Vcases/cases + Vcontrols/controls) *0.5))
@@ -77,3 +83,4 @@ GAS_power_calc <- function(daf,grr,prevalence,cases,controls,alpha,model){
 
   return(P)
 }
+
